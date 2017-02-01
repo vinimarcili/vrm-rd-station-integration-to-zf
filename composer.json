@@ -1,0 +1,16 @@
+{
+    "name": "vinimarcili/vrm-rdStationIntegrationToZf",
+    "description": "Package for integrate RD Station with your forms",
+    "authors": [
+        {
+            "name": "Vinícius Marcili",
+            "email": "vinipetter@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "VRMRdStationIntegration\\":"src/"
+        }
+    }
+}
