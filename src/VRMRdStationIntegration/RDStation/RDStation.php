@@ -58,14 +58,15 @@ class RDStation{
                 curl_setopt($ch, CURLOPT_POST, 1);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_query);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                curl_exec($ch);
+                $response = curl_exec($ch);
                 curl_close($ch);
             }
             else {
-                $params = array( 'http' => array( 'method' => 'POST', 'content' => $data_query ) );
+                $params = array( 'http' => array( 'method' => 'POST', 'content' => $data_query ));
                 $ctx = stream_context_create($params);
-                $fp = @fopen($api_url, 'rb', false, $ctx);
+                $fp = @fopen($this->api_url, 'rb', false, $ctx);
             }
             $this->redirect_success ? header("Location: ".$this->redirect_success) : header("Location: /");
         }
